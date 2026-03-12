@@ -1,16 +1,27 @@
-
 import java.util.Scanner;
 
 public class SimpleApp {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
 
-        System.out.print("Enter your name: ");
-        String name = sc.nextLine();
+            System.out.print("Enter your name: ");
+            String name = sc.nextLine();
 
-        System.out.println("Hello " + name + "! Welcome to Java.");
+            System.out.print("Enter your age: ");
+            int age = sc.nextInt();
 
-        sc.close();   // close scanner
+            System.out.println("\nHello " + name + "! Welcome to Java.");
+
+            System.out.println("You are " + age + " years old.");
+
+            if (age >= 18) {
+                System.out.println("You are eligible to vote.");
+            } else {
+                System.out.println("You are not eligible to vote yet.");
+            }
+
+            System.out.println("Have a great day learning Java!");
+        }
     }
 }
